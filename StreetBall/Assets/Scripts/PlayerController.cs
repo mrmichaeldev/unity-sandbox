@@ -113,7 +113,7 @@ public class PlayerController : MonoBehaviour
 
             case "Bullet":
                 {
-                    Health--;
+                    TakeDamage();
                     collider.GetComponent<BulletController>().ShouldDestroy = true;
                 }
                 break;
@@ -145,6 +145,15 @@ public class PlayerController : MonoBehaviour
     void AttachToHRail()
     {
         rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, 0);
+    }
+
+    void TakeDamage(int damage = 1)
+    {
+        Health -= damage;
+        if (Health <= 0)
+        {
+            GetComponent<Animator>().SetTrigger("LevelComplete");
+        }
     }
 
     void CollideRail()
