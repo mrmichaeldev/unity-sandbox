@@ -5,7 +5,7 @@ public class GunController : MonoBehaviour {
 
     public GameObject Bullet;
 
-    private const float _fireRate = 5.0f;
+    public float FireRate;
 
     private float _deltaTime;
 
@@ -20,7 +20,7 @@ public class GunController : MonoBehaviour {
     {
         _deltaTime += Time.deltaTime;
 
-        if (_deltaTime >= _fireRate)
+        if (_deltaTime >= FireRate)
         {
             Instantiate(Bullet, new Vector3(transform.position.x - 1, transform.position.y), Quaternion.Euler(new Vector3(0, 0, 90)));
             _deltaTime = 0;

@@ -150,9 +150,11 @@ public class PlayerController : MonoBehaviour
     void TakeDamage(int damage = 1)
     {
         Health -= damage;
+        GetComponent<Animator>().SetTrigger("DamageTaken");
         if (Health <= 0)
         {
             GetComponent<Animator>().SetTrigger("LevelComplete");
+            rigidbody2D.velocity = Vector2.zero;
         }
     }
 
