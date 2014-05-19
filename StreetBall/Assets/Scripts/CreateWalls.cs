@@ -9,7 +9,7 @@ public class CreateWalls : MonoBehaviour {
     public GameObject HRail;
     public GameObject Pickup;
     public GameObject Hole;
-    public GameObject Objective;
+    public GameObject Gun;
     public int Level;
 
 	// Use this for initialization
@@ -44,7 +44,12 @@ public class CreateWalls : MonoBehaviour {
                         }
                     case 4:
                         {
-                            Objective = (GameObject)Instantiate(Hole, position, Quaternion.identity);
+                            Hole = (GameObject)Instantiate(Hole, position, Quaternion.identity);
+                            break;
+                        }
+                    case 5:
+                        {
+                            Instantiate(Gun, position, Quaternion.identity);
                             break;
                         }
                     default:

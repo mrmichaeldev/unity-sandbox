@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     public bool IsLevelComplete { get { return NumPickups == 3; } }
     public float? DeltaAnimationTime;
 
+    public int Health = 5;
+
     //Fields for controlling player when entering objective
     private GameObject _hole;
     private Vector2? _preAnimationVelocity = null;
@@ -23,7 +25,7 @@ public class PlayerController : MonoBehaviour
     private CircleCollider2D _collider;
 
 
-    void Awake()
+    void Start()
     {
         Application.targetFrameRate = 60;
         rigidbody2D.velocity = new Vector2(Speed, Speed);
@@ -78,30 +80,46 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.tag == "Hole")
+        switch (collider.tag)
         {
-            IsInHole = true;
-            Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemies"), true);
-            if (IsLevelComplete)
-            {
-                if (DeltaAnimationTime == null && _animationVelocity == null)
+            case "Hole":
                 {
-                    DeltaAnimationTime = 0;
-                    _animationVelocity = rigidbody2D.velocity = new Vector2(_hole.transform.position.x - transform.position.x, _hole.transform.position.y - transform.position.y) / 0.6f;
-                    GetComponent<Animator>().SetTrigger("LevelComplete");
+                    if (collider.tag == "Hole")
+                    {
+                        IsInHole = true;
+                        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemies"), true);
+                        if (IsLevelComplete)
+                        {
+                            if (DeltaAnimationTime == null && _animationVelocity == null)
+                            {
+                                DeltaAnimationTime = 0;
+                                _animationVelocity = rigidbody2D.velocity = new Vector2(_hole.transform.position.x - transform.position.x, _hole.transform.position.y - transform.position.y) / 0.6f;
+                                GetComponent<Animator>().SetTrigger("LevelComplete");
+                            }
+                        }
+                        else
+                        {
+                            if (DeltaAnimationTime == null && _animationVelocity == null)
+                            {
+                                DeltaAnimationTime = 0;
+                                _preAnimationVelocity = rigidbody2D.velocity;
+                                _animationVelocity = rigidbody2D.velocity = new Vector2(_hole.transform.position.x - transform.position.x, _hole.transform.position.y - transform.position.y) / 0.6f;
+                                GetComponent<Animator>().SetTrigger("LevelNotComplete");
+                            }
+                        }
+                    }
                 }
-            }
-            else
-            {
-                if (DeltaAnimationTime == null && _animationVelocity == null)
+                break;
+
+            case "Bullet":
                 {
-                    DeltaAnimationTime = 0;
-                    _preAnimationVelocity = rigidbody2D.velocity;
-                    _animationVelocity = rigidbody2D.velocity = new Vector2(_hole.transform.position.x - transform.position.x, _hole.transform.position.y - transform.position.y) / 0.6f;
-                    GetComponent<Animator>().SetTrigger("LevelNotComplete");
+                    Health--;
+                    collider.GetComponent<BulletController>().ShouldDestroy = true;
                 }
-            }
-        }       
+                break;
+            default:
+                break;
+        }    
     }
 
     void OnTriggerExit2D(Collider2D collider)

@@ -571,7 +571,7 @@ MonoBehaviour:
   HRail: {fileID: 100000, guid: fdec6c5b7ca13a443943f36e12c50896, type: 2}
   Pickup: {fileID: 100000, guid: 79ab2cb0650d4a2448a603977ac4f64d, type: 2}
   Hole: {fileID: 100000, guid: cc3d5a7359fbacf43be01cf1ccce5efa, type: 2}
-  Objective: {fileID: 0}
+  Gun: {fileID: 100000, guid: 097a758addc99c8408c702f71d66756d, type: 2}
   Level: 1
 --- !u!4 &1494383184
 Transform:
