@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     private GameObject _hole;
     private Vector2? _preAnimationVelocity = null;
     private Vector2? _animationVelocity = null;
-    private const float _animationDelay = 0.6f;
+    private const float _animationDelay = 0.55f;
     private CircleCollider2D _collider;
 
 
@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void OnCollisionExit2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.tag == "Enemy")
         {
