@@ -87,7 +87,7 @@ GameObject:
   - 212: {fileID: 138791196}
   - 114: {fileID: 138791195}
   - 95: {fileID: 138791200}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -244,6 +244,10 @@ Prefab:
     - target: {fileID: 5800000, guid: 24265bf57253d3945a69024b89bba4f8, type: 2}
       propertyPath: m_Material
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 24265bf57253d3945a69024b89bba4f8, type: 2}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 24265bf57253d3945a69024b89bba4f8, type: 2}
@@ -434,7 +438,7 @@ GameObject:
   - 92: {fileID: 1183293257}
   - 124: {fileID: 1183293256}
   - 81: {fileID: 1183293255}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -512,7 +516,7 @@ GameObject:
   - 4: {fileID: 1390189393}
   - 58: {fileID: 1390189392}
   - 114: {fileID: 1390189391}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RailCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
