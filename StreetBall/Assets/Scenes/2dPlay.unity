@@ -262,7 +262,7 @@ GameObject:
   - 50: {fileID: 802622193}
   - 212: {fileID: 802622192}
   - 114: {fileID: 802622196}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -412,6 +412,10 @@ Prefab:
       propertyPath: m_IsKinematic
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 70f4eeab28b20574884e16195b9f54df, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: 70f4eeab28b20574884e16195b9f54df, type: 2}
@@ -559,7 +563,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1494383184}
   - 114: {fileID: 1494383183}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}

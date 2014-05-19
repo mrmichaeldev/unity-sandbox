@@ -81,6 +81,7 @@ public class PlayerController : MonoBehaviour
         if (collider.tag == "Hole")
         {
             IsInHole = true;
+            Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemies"), true);
             if (IsLevelComplete)
             {
                 if (DeltaAnimationTime == null && _animationVelocity == null)
@@ -107,6 +108,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collider.tag == "Hole")
         {
+            Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemies"), false);
             transform.Translate(_animationVelocity.Value / 30);
             rigidbody2D.velocity = _preAnimationVelocity.Value * -1f;
             IsInHole = false;

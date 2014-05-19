@@ -14,6 +14,9 @@ TagManager:
   - HealthBar
   - Hole
   - 
+  - ground
+  - Obstacle
+  - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
   Builtin Layer 2: Ignore Raycast
@@ -22,7 +25,7 @@ TagManager:
   Builtin Layer 5: 
   Builtin Layer 6: 
   Builtin Layer 7: 
-  User Layer 8: Bombs
+  User Layer 8: Void
   User Layer 9: Player
   User Layer 10: Enemies
   User Layer 11: Pickups
