@@ -49,7 +49,26 @@ public class CreateWalls : MonoBehaviour {
                         }
                     case 5:
                         {
-                            Instantiate(Gun, position, Quaternion.identity);
+                            Gun.GetComponent<GunController>().Direction = Enumeration.Direction.Left;
+                            Instantiate(Gun, position, Quaternion.Euler(new Vector3(0, 0, 0)));
+                            break;
+                        }
+                    case 6:
+                        {
+                            Gun.GetComponent<GunController>().Direction = Enumeration.Direction.Top;
+                            Instantiate(Gun, position, Quaternion.Euler(new Vector3(0, 0, -90)));
+                            break;
+                        }
+                    case 7:
+                        {
+                            Gun.GetComponent<GunController>().Direction = Enumeration.Direction.Right;
+                            Instantiate(Gun, position, Quaternion.Euler(new Vector3(0, 0, 180)));
+                            break;
+                        }
+                    case 8:
+                        {
+                            Gun.GetComponent<GunController>().Direction = Enumeration.Direction.Bottom;
+                            Instantiate(Gun, position, Quaternion.Euler(0, 0, 90));
                             break;
                         }
                     default:

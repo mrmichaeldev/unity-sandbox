@@ -7,10 +7,36 @@ public class BulletController : MonoBehaviour {
 
     public bool ShouldDestroy;
 
+    public Enumeration.Direction Direction;
+
 	// Use this for initialization
 	void Start ()
     {
-        rigidbody2D.velocity = new Vector2(-1 * Speed, 0);
+        switch (Direction)
+        {
+            case Enumeration.Direction.Left:
+                {
+                    rigidbody2D.velocity = new Vector2(-1 * Speed, 0);
+                    break;
+                }
+            case Enumeration.Direction.Top:
+                {
+                    rigidbody2D.velocity = new Vector2(0, 1 * Speed);
+                    break;
+                }
+            case Enumeration.Direction.Right:
+                {
+                    rigidbody2D.velocity = new Vector2(1 * Speed, 0);
+                    break;
+                }
+            case Enumeration.Direction.Bottom:
+                {
+                    rigidbody2D.velocity = new Vector2(0, -1 * Speed);
+                    break;
+                }
+            default:
+                break;
+        }
 	}
 	
 	// Update is called once per frame
