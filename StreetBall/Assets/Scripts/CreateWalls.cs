@@ -2,7 +2,8 @@
 using System.Collections;
 using System.IO;
 
-public class CreateWalls : MonoBehaviour {
+public class CreateWalls : MonoBehaviour
+{
 
     public GameObject Wall;
     public GameObject VRail;
