@@ -10,6 +10,7 @@ public class CreateWalls : MonoBehaviour {
     public GameObject Pickup;
     public GameObject Hole;
     public GameObject Gun;
+    public GameObject Plasma;
     public int Level;
 
 	// Use this for initialization
@@ -69,6 +70,11 @@ public class CreateWalls : MonoBehaviour {
                         {
                             Gun.GetComponent<GunController>().Direction = Enumeration.Direction.Bottom;
                             Instantiate(Gun, position, Quaternion.Euler(0, 0, 90));
+                            break;
+                        }
+                    case 9:
+                        {
+                            Instantiate(Plasma, position, Quaternion.identity);
                             break;
                         }
                     default:

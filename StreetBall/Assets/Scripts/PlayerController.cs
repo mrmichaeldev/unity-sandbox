@@ -108,15 +108,19 @@ public class PlayerController : MonoBehaviour
                             }
                         }
                     }
+                    break;
                 }
-                break;
-
             case "Bullet":
                 {
                     TakeDamage();
                     collider.GetComponent<BulletController>().ShouldDestroy = true;
+                    break;
                 }
-                break;
+            case "Plasma":
+                {
+                    TakeDamage();
+                    break;
+                }
             default:
                 break;
         }    
