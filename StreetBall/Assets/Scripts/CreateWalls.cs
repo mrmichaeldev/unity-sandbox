@@ -26,7 +26,7 @@ public class CreateWalls : MonoBehaviour
                 int num;
                 int.TryParse(codes[j], out num);
 
-                var position = new Vector3(j, i, 0);
+                var position = new Vector3(j, lines.Length - i, 0);
                 switch (num)
                 {
                     case 1:
