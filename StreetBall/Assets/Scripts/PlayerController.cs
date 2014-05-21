@@ -118,7 +118,7 @@ public class PlayerController : MonoBehaviour
                 }
             case "Plasma":
                 {
-                    TakeDamage();
+                    InstantlyDie();
                     break;
                 }
             default:
@@ -149,6 +149,11 @@ public class PlayerController : MonoBehaviour
     void AttachToHRail()
     {
         rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, 0);
+    }
+
+    void InstantlyDie()
+    {
+        TakeDamage(Health);
     }
 
     void TakeDamage(int damage = 1)
