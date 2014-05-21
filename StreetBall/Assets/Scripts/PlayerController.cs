@@ -72,10 +72,20 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.tag == "Enemy")
+        switch (collision.collider.tag)
         {
-            IsOnVRail = IsOnHRail = false;
+            case "Enemy":
+                {
+                    IsOnVRail = IsOnHRail = false;
+                    break;
+                }
+            case "PlasmaEnemy":
+                {
+                    TakeDamage(2);
+                    break;
+                }
         }
+        
     }
 
     void OnTriggerEnter2D(Collider2D collider)
