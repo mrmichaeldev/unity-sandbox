@@ -1,16 +1,15 @@
-﻿using UnityEngine;  
-using System.Collections;
+﻿using UnityEngine;
 
 public class PickedUp : MonoBehaviour
 {
     private PlayerController _player;
 
-    void Start()
+    private void Start()
     {
         _player = FindObjectOfType<PlayerController>();
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
         {

@@ -201,7 +201,7 @@ MonoBehaviour:
   IsOnVRail: 0
   NumPickups: 0
   IsInHole: 0
-  Health: 50
+  Health: 10000
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
