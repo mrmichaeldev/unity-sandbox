@@ -1,18 +1,17 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class EnemyController : MonoBehaviour
 {
     public float Speed;
 
-    void Awake()
+    private void Awake()
     {
         rigidbody2D.velocity = new Vector2(Speed, Speed);
     }
 
-    void Update()
+    private void Update()
     {
-        var velocity = rigidbody2D.velocity;
+        Vector2 velocity = rigidbody2D.velocity;
         if (velocity.x <= 0)
             velocity.x = -Speed;
         else velocity.x = Speed;

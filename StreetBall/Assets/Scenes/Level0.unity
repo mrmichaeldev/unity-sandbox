@@ -111,7 +111,7 @@ MonoBehaviour:
   IsOnVRail: 0
   NumPickups: 0
   IsInHole: 0
-  Health: 5
+  Health: 10000
 --- !u!212 &138791196
 SpriteRenderer:
   m_ObjectHideFlags: 0
