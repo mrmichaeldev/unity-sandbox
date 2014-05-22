@@ -81,7 +81,7 @@ public class PlayerController : MonoBehaviour
                 }
             case "PlasmaEnemy":
                 {
-                    TakeDamage(2);
+                    TakeLethalDamage();
                     break;
                 }
         }
@@ -135,7 +135,7 @@ public class PlayerController : MonoBehaviour
             }
             case "Plasma":
             {
-                TakeDamage();
+                TakeLethalDamage();
                 break;
             }
             default:
@@ -170,14 +170,23 @@ public class PlayerController : MonoBehaviour
         rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, 0);
     }
 
+    private void TakeLethalDamage()
+    {
+        TakeDamage(Health);
+    }
+
     private void TakeDamage(int damage = 1)
     {
         Health -= damage;
         GetComponent<Animator>().SetTrigger("DamageTaken");
-        if (Health > 0) 
-            return;
+        if (Health <= 0)
+            PlayerDied();   
+    }
+
+    private void PlayerDied()
+    {
         GetComponent<Animator>().SetTrigger("LevelComplete");
-        rigidbody2D.velocity = Vector2.zero;
+        
     }
 
     private void CollideRail()

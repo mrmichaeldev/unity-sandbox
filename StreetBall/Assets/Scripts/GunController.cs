@@ -4,7 +4,7 @@ public class GunController : MonoBehaviour
 {
     public GameObject Bullet;
 
-    public Enumeration.Direction Direction;
+    public Direction Direction;
     public float FireRate;
 
     private Vector3 _bulletPosition;
@@ -17,25 +17,25 @@ public class GunController : MonoBehaviour
     {
         switch (Direction)
         {
-            case Enumeration.Direction.Left:
+            case Direction.Left:
             {
                 _bulletPosition = new Vector3(transform.position.x - 1, transform.position.y);
                 _bulletRotation = Quaternion.Euler(new Vector3(0, 0, 90));
                 break;
             }
-            case Enumeration.Direction.Top:
+            case Direction.Top:
             {
                 _bulletPosition = new Vector3(transform.position.x, transform.position.y + 1);
                 _bulletRotation = Quaternion.Euler(new Vector3(0, 0, 0));
                 break;
             }
-            case Enumeration.Direction.Right:
+            case Direction.Right:
             {
                 _bulletPosition = new Vector3(transform.position.x + 1, transform.position.y);
                 _bulletRotation = Quaternion.Euler(new Vector3(0, 0, -90));
                 break;
             }
-            case Enumeration.Direction.Bottom:
+            case Direction.Bottom:
             {
                 _bulletPosition = new Vector3(transform.position.x, transform.position.y - 1);
                 _bulletRotation = Quaternion.Euler(new Vector3(0, 0, 180));

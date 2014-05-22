@@ -50,25 +50,25 @@ public class CreateWalls : MonoBehaviour
                     }
                     case 5:
                     {
-                        Gun.GetComponent<GunController>().Direction = Enumeration.Direction.Left;
+                        Gun.GetComponent<GunController>().Direction = Direction.Left;
                         Instantiate(Gun, position, Quaternion.Euler(new Vector3(0, 0, 0)));
                         break;
                     }
                     case 6:
                     {
-                        Gun.GetComponent<GunController>().Direction = Enumeration.Direction.Top;
+                        Gun.GetComponent<GunController>().Direction = Direction.Top;
                         Instantiate(Gun, position, Quaternion.Euler(new Vector3(0, 0, -90)));
                         break;
                     }
                     case 7:
                     {
-                        Gun.GetComponent<GunController>().Direction = Enumeration.Direction.Right;
+                        Gun.GetComponent<GunController>().Direction = Direction.Right;
                         Instantiate(Gun, position, Quaternion.Euler(new Vector3(0, 0, 180)));
                         break;
                     }
                     case 8:
                     {
-                        Gun.GetComponent<GunController>().Direction = Enumeration.Direction.Bottom;
+                        Gun.GetComponent<GunController>().Direction = Direction.Bottom;
                         Instantiate(Gun, position, Quaternion.Euler(0, 0, 90));
                         break;
                     }
@@ -90,7 +90,7 @@ public class CreateWalls : MonoBehaviour
                 int num;
                 int.TryParse(codes[j], out num);
 
-                var position = new Vector3(j, i, 0);
+                var position = new Vector3(j, pickupLines.Length - i, 0);
                 switch (num)
                 {
                     case 1:

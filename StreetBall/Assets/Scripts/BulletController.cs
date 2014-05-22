@@ -2,7 +2,7 @@
 
 public class BulletController : MonoBehaviour
 {
-    public Enumeration.Direction Direction;
+    public Direction Direction;
     public bool ShouldDestroy;
     public int Speed;
 
@@ -11,22 +11,22 @@ public class BulletController : MonoBehaviour
     {
         switch (Direction)
         {
-            case Enumeration.Direction.Left:
+            case Direction.Left:
             {
                 rigidbody2D.velocity = new Vector2(-1*Speed, 0);
                 break;
             }
-            case Enumeration.Direction.Top:
+            case Direction.Top:
             {
                 rigidbody2D.velocity = new Vector2(0, 1*Speed);
                 break;
             }
-            case Enumeration.Direction.Right:
+            case Direction.Right:
             {
                 rigidbody2D.velocity = new Vector2(1*Speed, 0);
                 break;
             }
-            case Enumeration.Direction.Bottom:
+            case Direction.Bottom:
             {
                 rigidbody2D.velocity = new Vector2(0, -1*Speed);
                 break;
