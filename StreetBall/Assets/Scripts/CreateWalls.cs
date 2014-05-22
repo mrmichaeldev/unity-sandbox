@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using System.Text;
 using UnityEngine;
+using Newtonsoft.Json;
 
 public class CreateWalls : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class CreateWalls : MonoBehaviour
     // Use this for initialization
     private void Start()
     {
-        string[] lines = File.ReadAllLines(string.Format(@"Assets/Levels/Level{0}.txt", Level), Encoding.UTF8);
+        string[] lines = File.ReadAllLines(string.Format(@"Assets/Levels/Maps/Level{0}.txt", Level), Encoding.UTF8);
         for (int i = 0; i < lines.Length; i++)
         {
             string[] codes = lines[i].Split(' ');
@@ -81,7 +82,7 @@ public class CreateWalls : MonoBehaviour
             }
         }
 
-        string[] pickupLines = File.ReadAllLines(string.Format(@"Assets/Pickups/Level{0}.txt", Level), Encoding.UTF8);
+        string[] pickupLines = File.ReadAllLines(string.Format(@"Assets/Levels/Pickups/Level{0}.txt", Level), Encoding.UTF8);
         for (int i = 0; i < pickupLines.Length; i++)
         {
             string[] codes = pickupLines[i].Split(' ');
@@ -101,5 +102,15 @@ public class CreateWalls : MonoBehaviour
                 }
             }
         }
+
+        string[] jsonLines = File.ReadAllLines(string.Format(@"Assets/Levels/Json/Level{0}.txt", Level), Encoding.UTF8);
+        for (int i = 0; i < jsonLines.Length; i++)
+        {
+            var serializedGameObject = jsonLines[i];
+            //TODO need to pull type for this?
+            var gameObject = JsonConvert.DeserializeObject(serializedGameObject);
+
+        }
+
     }
 }

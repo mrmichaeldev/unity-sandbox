@@ -24,7 +24,6 @@ public class PlayerController : MonoBehaviour
     private const float _animationDelay = 0.55f;
     private CircleCollider2D _collider;
 
-
     private void Start()
     {
         Application.targetFrameRate = 60;
@@ -85,7 +84,6 @@ public class PlayerController : MonoBehaviour
                     break;
                 }
         }
-        
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
@@ -186,7 +184,6 @@ public class PlayerController : MonoBehaviour
     private void PlayerDied()
     {
         GetComponent<Animator>().SetTrigger("LevelComplete");
-        
     }
 
     private void CollideRail()
