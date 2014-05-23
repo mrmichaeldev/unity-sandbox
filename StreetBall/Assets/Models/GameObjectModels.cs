@@ -11,12 +11,12 @@ namespace Assets.Models
     public class GameObjectModels
     {
         [DataMember(Name = "button")]
-        public Button Button { get; set; }
+        public Button[] Buttons { get; set; }
 
         [DataMember(Name = "teleporter")]
-        public Teleporter Teleporter { get; set; }
+        public Teleporter[] Teleporters { get; set; }
 
         [DataMember(Name = "trap")]
-        public Trap Trap { get; set; }
+        public Trap[] Traps { get; set; }
     }
 }

@@ -15,13 +15,5 @@ namespace Models
 
         [DataMember(Name = "direction")]
         public Direction Direction { get; set; }
-
-        [DataMember(Name = "type")]
-        public Type Type { get; set; }
-
-        public T GetClass<T>() where T : GameData
-        {
-            return (T)this;
-        }
     }
 }

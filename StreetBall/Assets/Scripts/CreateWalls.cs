@@ -107,25 +107,33 @@ public class CreateWalls : MonoBehaviour
             }
         }
 
-        string[] jsonLines = File.ReadAllLines(string.Format(@"Assets/Levels/Json/Level{0}.txt", Level), Encoding.UTF8);
-        for (int i = 0; i < jsonLines.Length; i++)
+        string levelJson = File.ReadAllText(string.Format(@"Assets/Levels/Json/Level{0}.txt", Level), Encoding.UTF8);
+
+        var gameObject = JsonConvert.DeserializeObject<GameObjectModels>(levelJson);
+
+        if (gameObject.Buttons != null)
         {
-            var serializedGameObject = jsonLines[i];
-            //TODO need to pull type for this?
-            var gameObject = JsonConvert.DeserializeObject<GameObjectModels>(serializedGameObject);
-            if (gameObject.Button != null)
+            foreach (var buttons in gameObject.Buttons)
             {
                 //TODO: instantiate a button
             }
-            else if (gameObject.Teleporter != null)
-            {
-                //TODO: instantiate a Teleporter
-            }
-            else if (gameObject.Trap != null)
-            {
-                //TODO: instantiate a Trap
-            }
+        }
 
+        if (gameObject.Teleporters != null)
+        {
+            foreach (var teleporter in gameObject.Teleporters)
+            {
+                //Instantiate teleporters
+            }
+        }
+
+        if (gameObject.Traps != null)
+        {
+            foreach (var trap in gameObject.Traps)
+            {
+                //Instantiate traps
+
+            }
         }
     }
 }
