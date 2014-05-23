@@ -1,11 +1,11 @@
-﻿using System.IO;
-using System.Text;
-using UnityEngine;
-using Newtonsoft.Json;
+﻿using Assets.Models;
+using Models;
 using System;
 using System.Collections.Generic;
-using Models;
-using Assets.Models;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Text;
+using UnityEngine;
 
 public class CreateWalls : MonoBehaviour
 {
@@ -107,9 +107,9 @@ public class CreateWalls : MonoBehaviour
             }
         }
 
-        string levelJson = File.ReadAllText(string.Format(@"Assets/Levels/Json/Level{0}.txt", Level), Encoding.UTF8);
-
-        var gameObject = JsonConvert.DeserializeObject<GameObjectModels>(levelJson);
+        //var gameObject = JsonConvert.DeserializeObject<GameObjectModels>(levelJson);
+        var serializer = new DataContractSerializer(typeof(GameObjectModels));
+        var gameObject = (GameObjectModels)serializer.ReadObject(File.OpenRead(string.Format(@"Assets/Levels/Json/Level{0}.txt", Level)));
 
         if (gameObject.Buttons != null)
         {
