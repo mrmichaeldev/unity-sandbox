@@ -2,6 +2,10 @@
 using System.Text;
 using UnityEngine;
 using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using Models;
+using Assets.Models;
 
 public class CreateWalls : MonoBehaviour
 {
@@ -108,9 +112,20 @@ public class CreateWalls : MonoBehaviour
         {
             var serializedGameObject = jsonLines[i];
             //TODO need to pull type for this?
-            var gameObject = JsonConvert.DeserializeObject(serializedGameObject);
+            var gameObject = JsonConvert.DeserializeObject<GameObjectModels>(serializedGameObject);
+            if (gameObject.Button != null)
+            {
+                //TODO: instantiate a button
+            }
+            else if (gameObject.Teleporter != null)
+            {
+                //TODO: instantiate a Teleporter
+            }
+            else if (gameObject.Trap != null)
+            {
+                //TODO: instantiate a Trap
+            }
 
         }
-
     }
 }

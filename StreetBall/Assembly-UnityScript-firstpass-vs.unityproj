@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\Standard Assets\Particles\Legacy Particles\TimedObjectDestructor.js" />
      <None Include="Assets\Standard Assets\Particles\Sources\Shaders\Particle Alpha Blend (Queue +100).shader" />
+     <None Include="Assets\Levels\Json\Level1.txt" />
      <None Include="Assets\Levels\Maps\Level1.txt" />
      <None Include="Assets\Levels\Pickups\Level1.txt" />
   </ItemGroup>
