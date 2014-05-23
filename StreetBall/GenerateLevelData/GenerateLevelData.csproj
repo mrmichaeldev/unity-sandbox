@@ -32,18 +32,37 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\StreetBall\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine">
+      <HintPath>C:\Program Files (x86)\Unity\Editor\Data\Managed\UnityEngine.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\Assets\Models\Button.cs">
+      <Link>Models\Button.cs</Link>
+    </Compile>
+    <Compile Include="..\Assets\Models\GameData.cs">
+      <Link>Models\GameData.cs</Link>
+    </Compile>
+    <Compile Include="..\Assets\Models\GameObjectModels.cs">
+      <Link>Models\GameObjectModels.cs</Link>
+    </Compile>
+    <Compile Include="..\Assets\Models\Teleporter.cs">
+      <Link>Models\Teleporter.cs</Link>
+    </Compile>
+    <Compile Include="..\Assets\Models\Trap.cs">
+      <Link>Models\Trap.cs</Link>
+    </Compile>
+    <Compile Include="..\Assets\Utilities\Direction.cs">
+      <Link>Utilities\Direction.cs</Link>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
