@@ -11,7 +11,7 @@ namespace Models
         public int Id { get; set; }
 
         [DataMember(Name = "position")]
-        public Vector2 Position { get; set; }
+        public Vector3 Position { get; set; }
 
         [DataMember(Name = "direction")]
         public Direction Direction { get; set; }

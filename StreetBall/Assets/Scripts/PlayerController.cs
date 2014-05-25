@@ -125,6 +125,11 @@ public class PlayerController : MonoBehaviour
                 }
                 break;
             }
+            case "Teleporter":
+            {
+                //var teleporter = GameObject.find
+                break;
+            }
             case "Bullet":
             {
                 TakeDamage();

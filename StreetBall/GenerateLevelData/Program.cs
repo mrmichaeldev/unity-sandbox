@@ -30,14 +30,14 @@ namespace GenerateLevelData
                     new Teleporter
                     {
                         Id = 0,
-                        Position = new Vector2(0,0),
+                        Position = new Vector3(0,0,0),
                         Direction = Direction.Right,
                         TargetId = 1,
                     },
                     new Teleporter
                     {
                         Id = 1,
-                        Position = new Vector2(19,12),
+                        Position = new Vector3(19,12,0),
                         Direction = Direction.Left,
                         TargetId = 0,
                     }

@@ -16,6 +16,7 @@ public class CreateWalls : MonoBehaviour
     public GameObject Hole;
     public GameObject Gun;
     public GameObject Plasma;
+    public GameObject Teleportor;
     public int Level;
 
     // Use this for initialization
@@ -124,6 +125,9 @@ public class CreateWalls : MonoBehaviour
             foreach (var teleporter in gameObject.Teleporters)
             {
                 //Instantiate teleporters
+                //Teleporter = teleporter;
+                Teleportor.GetComponent<TeleporterController>().Teleporter = teleporter;
+                Instantiate(Teleportor, teleporter.Position, Quaternion.Euler(new Vector3(0, 0, (int)teleporter.Direction * 90 - 90)));
             }
         }
 
