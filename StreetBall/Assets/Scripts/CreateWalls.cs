@@ -112,6 +112,7 @@ public class CreateWalls : MonoBehaviour
         var serializer = new DataContractSerializer(typeof(GameObjectModels));
         var gameObject = (GameObjectModels)serializer.ReadObject(File.OpenRead(string.Format(@"Assets/Levels/Json/Level{0}.txt", Level)));
 
+        Level = 0;
         if (gameObject.Buttons != null)
         {
             foreach (var buttons in gameObject.Buttons)
@@ -126,7 +127,9 @@ public class CreateWalls : MonoBehaviour
             {
                 //Instantiate teleporters
                 //Teleporter = teleporter;
-                Teleportor.GetComponent<TeleporterController>().Teleporter = teleporter;
+                //Teleportor.GetComponent<TeleporterController>().Teleporter = teleporter;
+                //Teleportor.GetComponent<Transform>().position = teleporter.Position;
+                //Console.WriteLine(string.Format("X={0}, Y={1}", teleporter.Position.x, teleporter.Position.y));
                 Instantiate(Teleportor, teleporter.Position, Quaternion.Euler(new Vector3(0, 0, (int)teleporter.Direction * 90 - 90)));
             }
         }

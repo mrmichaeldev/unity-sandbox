@@ -11,7 +11,8 @@ public class TeleporterController : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        TeleportTo = GameObject.FindGameObjectsWithTag("Teleporter").FirstOrDefault(t => t.GetComponent<TeleporterController>().Teleporter.Id == Teleporter.TargetId);
+        //transform.Translate(Teleporter.Position);
+        //TeleportTo = GameObject.FindGameObjectsWithTag("Teleporter").FirstOrDefault(t => t.GetComponent<TeleporterController>().Teleporter.Id == Teleporter.TargetId);
 	}
 	
 	// Update is called once per frame
