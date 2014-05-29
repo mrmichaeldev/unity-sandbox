@@ -10,13 +10,13 @@ namespace Assets.Models
     [DataContract]
     public class GameObjectModels
     {
-        [DataMember(Name = "button")]
+        [DataMember]
         public Button[] Buttons { get; set; }
 
-        [DataMember(Name = "teleporter")]
+        [DataMember]
         public Teleporter[] Teleporters { get; set; }
 
-        [DataMember(Name = "trap")]
+        [DataMember]
         public Trap[] Traps { get; set; }
     }
 }

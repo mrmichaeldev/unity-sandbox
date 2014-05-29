@@ -127,7 +127,11 @@ public class PlayerController : MonoBehaviour
             }
             case "Teleporter":
             {
-                //var teleporter = GameObject.find
+                var component = collider.GetComponent<TeleporterController>();
+                //var p0 = component.Teleporter.Position;
+                //var p1 = component.TeleportTo.GetComponent<TeleporterController>().Teleporter.Position;
+                transform.Translate(component.Teleport);
+                Debug.Log(component.Teleport);
                 break;
             }
             case "Bullet":

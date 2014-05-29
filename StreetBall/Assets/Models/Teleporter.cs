@@ -6,7 +6,7 @@ namespace Models
     public class Teleporter : GameData
     {
         //Id of the Teleporter object this teleporter links to
-        [DataMember(Name="targetId")]
+        [DataMember]
         public int TargetId { get; set; }
     }
 }

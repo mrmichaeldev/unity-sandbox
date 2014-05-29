@@ -1,19 +1,19 @@
-﻿using System;
+﻿using Assets.Models;
+using System;
 using System.Runtime.Serialization;
-using UnityEngine;
 
 namespace Models
 {
     [DataContract]
     public class GameData
     {
-        [DataMember(Name = "id")]
+        [DataMember]
         public int Id { get; set; }
 
-        [DataMember(Name = "position")]
+        [DataMember]
         public Vector3 Position { get; set; }
 
-        [DataMember(Name = "direction")]
-        public Direction Direction { get; set; }
+        [DataMember]
+        public int Rotation { get; set; }
     }
 }

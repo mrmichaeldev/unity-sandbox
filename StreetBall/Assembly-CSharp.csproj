@@ -51,6 +51,7 @@
      <Compile Include="Assets\Models\GameObjectModels.cs" />
      <Compile Include="Assets\Models\Teleporter.cs" />
      <Compile Include="Assets\Models\Trap.cs" />
+     <Compile Include="Assets\Models\Vector3.cs" />
      <Compile Include="Assets\Scripts\BulletController.cs" />
      <Compile Include="Assets\Scripts\CollideRail.cs" />
      <Compile Include="Assets\Scripts\CreateWalls.cs" />

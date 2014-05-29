@@ -6,11 +6,11 @@ namespace Models
     public class Trap : GameData
     {
         //button to control if the trap is enabled or disabled
-        [DataMember(Name = "buttonId")]
+        [DataMember]
         public int ButtonId { get; set; }
 
         //List of fields that comprise the trap
-        [DataMember(Name = "fields")]
+        [DataMember]
         public GameData[] Fields { get; set; }
     }
 }

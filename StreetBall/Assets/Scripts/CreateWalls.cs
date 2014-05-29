@@ -1,11 +1,13 @@
 ﻿using Assets.Models;
 using Models;
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Text;
 using UnityEngine;
+using Vector3 = UnityEngine.Vector3;
 
 public class CreateWalls : MonoBehaviour
 {
@@ -109,10 +111,26 @@ public class CreateWalls : MonoBehaviour
         }
 
         //var gameObject = JsonConvert.DeserializeObject<GameObjectModels>(levelJson);
+        //var serializer = new DataContractSerializer(typeof(GameObjectModels));
         var serializer = new DataContractSerializer(typeof(GameObjectModels));
-        var gameObject = (GameObjectModels)serializer.ReadObject(File.OpenRead(string.Format(@"Assets/Levels/Json/Level{0}.txt", Level)));
+        //Debug.Log(File.ReadAllLines(string.Format(@"Assets/Levels/Json/Level{0}.txt", Level)).First());
+        //var gameObject = (GameObjectModels)serializer.ReadObject(System.Xml.XmlReader.Create(string.Format(@"Assets/Levels/Json/Level{0}.txt", Level)));
+        //var stream = File.OpenRead(string.Format(@"Assets/Levels/Json/Level{0}.txt", Level));
+        //stream.Write(
+        //var gameObject = (GameObjectModels)serializer.ReadObject(stream);
+        //Debug.Log(gameObject.Teleporters.Last().Position.x);
 
-        Level = 0;
+        GameObjectModels gameObject;
+
+        using (var stream = new MemoryStream())
+        {
+            var data = File.ReadAllBytes(string.Format(@"Assets/Levels/Json/Level{0}.txt", Level));
+            Debug.Log(System.Text.Encoding.UTF8.GetString(data, 0, data.Length));
+            stream.Write(data, 0, data.Length);
+            stream.Position = 0;
+            gameObject = (GameObjectModels)serializer.ReadObject(stream);
+        }
+
         if (gameObject.Buttons != null)
         {
             foreach (var buttons in gameObject.Buttons)
@@ -125,12 +143,7 @@ public class CreateWalls : MonoBehaviour
         {
             foreach (var teleporter in gameObject.Teleporters)
             {
-                //Instantiate teleporters
-                //Teleporter = teleporter;
-                //Teleportor.GetComponent<TeleporterController>().Teleporter = teleporter;
-                //Teleportor.GetComponent<Transform>().position = teleporter.Position;
-                //Console.WriteLine(string.Format("X={0}, Y={1}", teleporter.Position.x, teleporter.Position.y));
-                Instantiate(Teleportor, teleporter.Position, Quaternion.Euler(new Vector3(0, 0, (int)teleporter.Direction * 90 - 90)));
+                Instantiate(Teleportor, teleporter.Position.GetVector(), Quaternion.Euler(new Vector3(0, 0, teleporter.Rotation * 90 - 90)));
             }
         }
 

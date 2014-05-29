@@ -5,10 +5,10 @@ namespace Models
     [DataContract]
     public class Button : GameData
     {
-        [DataMember(Name="isOn")]
+        [DataMember]
         public bool IsOn { get; set; }
 
-        [DataMember(Name = "triggers")]
+        [DataMember]
         public int[] Triggers { get; set; }
     }
 }
