@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         Application.targetFrameRate = 60;
+        var rigidbody2D = GetComponent<Rigidbody2D>();
         rigidbody2D.velocity = new Vector2(Speed, Speed);
         _collider = GetComponent<CircleCollider2D>();
     }
@@ -34,6 +35,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        var rigidbody2D = GetComponent<Rigidbody2D>();
         //TODO: figure out how to do this in Awake()
         if (_hole == null)
         {
@@ -88,6 +90,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
+        var rigidbody2D = GetComponent<Rigidbody2D>();
         switch (collider.tag)
         {
             case "Hole":
@@ -143,6 +146,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collider)
     {
+        var rigidbody2D = GetComponent<Rigidbody2D>();
         switch (collider.tag)
         {
             case "Hole":
@@ -159,12 +163,14 @@ public class PlayerController : MonoBehaviour
 
     private void AttachToVRail()
     {
+        var rigidbody2D = GetComponent<Rigidbody2D>();
         var velocity = new Vector2(0, rigidbody2D.velocity.y);
         rigidbody2D.velocity = velocity;
     }
 
     private void AttachToHRail()
     {
+        var rigidbody2D = GetComponent<Rigidbody2D>();
         rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, 0);
     }
 
@@ -188,6 +194,7 @@ public class PlayerController : MonoBehaviour
 
     private void CollideRail()
     {
+        var rigidbody2D = GetComponent<Rigidbody2D>();
         if (IsOnHRail && rigidbody2D.velocity.y != 0) AttachToHRail();
         else if (IsOnVRail && rigidbody2D.velocity.x != 0) AttachToVRail();
         if (IsOnVRail)
@@ -228,6 +235,7 @@ public class PlayerController : MonoBehaviour
 
     private void NormalizeVelocity()
     {
+        var rigidbody2D = GetComponent<Rigidbody2D>();
         if (OnRail) 
             return;
 

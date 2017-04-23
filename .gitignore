@@ -78,5 +78,6 @@ _ReSharper.*
 *.vsp
 *.psess
 StreetBall/Library/metadata/
+StreetBall/Library/metadata/**
 StreetBall/Temp/
 StreetBall/Library/

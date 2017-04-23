@@ -9,6 +9,7 @@ public class BulletController : MonoBehaviour
     // Use this for initialization
     private void Start()
     {
+        var rigidbody2D = GetComponent<Rigidbody2D>();
         switch (Direction)
         {
             case Direction.Left:

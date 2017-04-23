@@ -6,11 +6,13 @@ public class EnemyController : MonoBehaviour
 
     private void Awake()
     {
+        var rigidbody2D = GetComponent<Rigidbody2D>();
         rigidbody2D.velocity = new Vector2(Speed, Speed);
     }
 
     private void Update()
     {
+        var rigidbody2D = GetComponent<Rigidbody2D>();
         Vector2 velocity = rigidbody2D.velocity;
         if (velocity.x <= 0)
             velocity.x = -Speed;
