@@ -2,19 +2,16 @@
 
 public class PlayerController : MonoBehaviour
 {
-    public float Speed;
-
+    public bool IsLevelComplete { get { return NumPickups == 3; } }
     public bool OnRail { get { return IsOnHRail || IsOnVRail; } }
 
     public bool IsOnHRail;
     public bool IsOnVRail;
     public int NumPickups;
     public bool IsInHole;
-
-    public bool IsLevelComplete { get { return NumPickups == 3; } }
-
+    public bool IsTeleporting;
+    public float Speed;
     public float? DeltaAnimationTime;
-
     public int Health = 5;
 
     //Fields for controlling player when entering objective
