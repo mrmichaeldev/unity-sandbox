@@ -11,7 +11,7 @@ public class CollideRail : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log("hit rail");
+        //Debug.Log("hit rail");
         if (!(_player.IsOnHRail || _player.IsOnVRail))
         {
             switch (collider.tag)

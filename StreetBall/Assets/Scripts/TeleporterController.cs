@@ -38,18 +38,15 @@ public class TeleporterController : MonoBehaviour
                     if (!controller.IsTeleporting)
                     {
                         controller.IsTeleporting = true;
-                        var rotationQuaternion = Quaternion.Euler(To.transform.rotation.x - transform.rotation.x, To.transform.rotation.y - transform.rotation.y, To.transform.rotation.z - transform.rotation.z);
+                        var rotationQuaternion = Quaternion.Euler(To.transform.eulerAngles.x - transform.eulerAngles.x, To.transform.eulerAngles.y - transform.eulerAngles.y, To.transform.eulerAngles.z - transform.eulerAngles.z);
                         var rigidbody = controller.GetComponent<Rigidbody2D>();
-                        rigidbody.velocity *= -1;
-                        var rotationoffset = transform.position - new Vector3(rigidbody.position.x, rigidbody.position.y, 0);
-                        var rotationoffset2 = To.transform.position - new Vector3(rigidbody.position.x, rigidbody.position.y, 0);
                         rigidbody.velocity = rotationQuaternion * rigidbody.velocity;
-                        
+                        rigidbody.velocity *= -1;
+
+                        var distance = collider.bounds.center - GetComponent<Collider2D>().bounds.center;
+                        var offset = rotationQuaternion * (distance);
                         collider.transform.Translate(TeleportTo);
-                        rotationoffset = rotationQuaternion * rotationoffset;
-                        rotationoffset2 = rotationQuaternion * rotationoffset2;
-                        collider.transform.Translate(rotationoffset);
-                        collider.transform.Translate(rotationoffset2);
+                        collider.transform.Translate(offset * 2);
                     }
                 }
                 break;
